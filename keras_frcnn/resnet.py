@@ -12,6 +12,7 @@ from keras.layers import Input, Add, Dense, Activation, Flatten, Convolution2D, 
     AveragePooling2D, TimeDistributed
 
 from keras import backend as K
+K.set_image_data_format('channels_last')
 
 from keras_frcnn.RoiPoolingConv import RoiPoolingConv
 from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
