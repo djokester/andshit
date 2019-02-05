@@ -14,7 +14,7 @@ def get_data(input_path):
 	with open(input_path,'r') as f:
 
 		print('Parsing annotation files')
-
+		f = f.read().splitlines()
 		for line in f:
 			line_split = line.strip().split(',')
 			(filename,x1,y1,x2,y2,class_name) = line_split
