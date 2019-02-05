@@ -17,7 +17,9 @@ def get_data(input_path):
 		f = f.read().splitlines()
 		for line in f:
 			line_split = line.strip().split(',')
-			print(line_split)
+			index = f.index(line)
+			if index%500 == 0:
+				print(index)
 			(filename,x1,y1,x2,y2,class_name) = line_split
 
 			if class_name not in classes_count:
