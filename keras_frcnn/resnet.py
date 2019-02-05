@@ -15,6 +15,7 @@ from keras import backend as K
 
 from keras_frcnn.RoiPoolingConv import RoiPoolingConv
 from keras_frcnn.FixedBatchNormalization import FixedBatchNormalization
+K.set_image_data_format('channels_last')
 
 def get_weight_path():
     if K.image_dim_ordering() == 'th':
