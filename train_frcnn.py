@@ -15,7 +15,7 @@ from keras_frcnn import config, data_generators
 from keras_frcnn import losses as losses
 import keras_frcnn.roi_helpers as roi_helpers
 from keras.utils import generic_utils
-
+K.set_image_data_format('channels_last')
 sys.setrecursionlimit(40000)
 
 parser = OptionParser()
