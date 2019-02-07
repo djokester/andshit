@@ -250,7 +250,7 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	#cv2.waitKey(0)
 	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
 	lst.append([img_name, real_x1, real_y1, real_x2, real_y2])
-	if int(idx/length*100)% 5 <= 0.01:
+	if (idx/length*100)% 5 <= 0.01:
 		print(count, idx/length*100)
 
 import pandas as pd
