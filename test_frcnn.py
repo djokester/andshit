@@ -248,7 +248,7 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	#cv2.imshow('img', img)
 	#cv2.waitKey(0)
 	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
-	lst.appened([img_name, real_x1, real_y1, real_x2, real_y2])
+	lst.append([img_name, real_x1, real_y1, real_x2, real_y2])
 	print(count)
 
 import pandas as pd
