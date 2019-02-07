@@ -148,6 +148,7 @@ bbox_threshold = 0.8
 visualise = True
 count = 0
 lst = []
+length = len(os.listdir(img_path))
 for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	if not img_name.lower().endswith(('.bmp', '.jpeg', '.jpg', '.png', '.tif', '.tiff')):
 		continue
@@ -249,7 +250,7 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	#cv2.waitKey(0)
 	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
 	lst.append([img_name, real_x1, real_y1, real_x2, real_y2])
-	print(count)
+	print(count, idx/length*100)
 
 import pandas as pd
 df = pd.DataFrame(lst, columns=['image_name', 'x1', 'y1', 'x2', 'y2'])
