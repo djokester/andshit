@@ -152,7 +152,7 @@ length = len(os.listdir(img_path))
 for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	if not img_name.lower().endswith(('.bmp', '.jpeg', '.jpg', '.png', '.tif', '.tiff')):
 		continue
-	print(img_name)
+	#print(img_name)
 	st = time.time()
 	filepath = os.path.join(img_path,img_name)
 
@@ -250,8 +250,8 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 			#cv2.rectangle(img, (textOrg[0] - 5,textOrg[1]+baseLine - 5), (textOrg[0]+retval[0] + 5, textOrg[1]-retval[1] - 5), (255, 255, 255), -1)
 			#cv2.putText(img, textLabel, textOrg, cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 1)
 	
-	print('Elapsed time = {}'.format(time.time() - st))
-	print(all_dets)
+	#print('Elapsed time = {}'.format(time.time() - st))
+	#print(all_dets)
 	#cv2.imshow('img', img)
 	#cv2.waitKey(0)
 	# cv2.imwrite('./results_imgs/{}.png'.format(idx),img)
