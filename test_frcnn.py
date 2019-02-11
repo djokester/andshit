@@ -280,7 +280,7 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	if y2_temp > 480: 
 		y2_temp = 480
 	lst.append([img_name, x1_temp, y1_temp, x2_temp, y2_temp])
-	if int(idx/length*10)%50 == 0:
+	if int(idx/length*100)%100 == 0:
 		print(count, idx/length*100)
 
 import pandas as pd
