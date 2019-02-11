@@ -276,9 +276,9 @@ for idx, img_name in enumerate(sorted(os.listdir(img_path))):
 	if y1_temp < 0: 
 		y1_temp = 0
 	if x2_temp > 640: 
-		x1_temp = 640
-	if y1_temp > 480: 
-		y1_temp = 480
+		x2_temp = 640
+	if y2_temp > 480: 
+		y2_temp = 480
 	lst.append([img_name, x1_temp, y1_temp, x2_temp, y2_temp])
 	if int(idx/length*10)%50 == 0:
 		print(count, idx/length*100)
