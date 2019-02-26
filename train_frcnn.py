@@ -142,7 +142,7 @@ except:
 		https://github.com/fchollet/keras/tree/master/keras/applications')
 optimizer = Adam()
 model_rpn.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)])
-model_classifier.compile(optimizer=optimizer, loss=rpn_loss_cls(num_anchors), metrics={'dense_class_{}'.format(len(classes_count)): 'accuracy'})
+model_classifier.compile(optimizer=optimizer, loss=losses.rpn_loss_cls(num_anchors), metrics={'dense_class_{}'.format(len(classes_count)): 'accuracy'})
 model_all.compile(optimizer=optimizer, loss= "mae")
 
 epoch_length = 500
