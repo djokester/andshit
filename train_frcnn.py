@@ -144,8 +144,8 @@ except:
 optimizer = Adam(lr=1e-5)
 optimizer_classifier = Adam(lr=1e-5)
 model_rpn.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)])
-model_classifier.compile(optimizer=optimizer_classifier, loss=[losses.class_loss_cls, losses.class_loss_regr(len(classes_count)-1)], metrics={'dense_class_{}'.format(len(classes_count)): 'accuracy'})
-model_all.compile(optimizer='sgd', loss='mae')
+model_classifier.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)], metrics={'dense_class_{}'.format(len(classes_count)): 'accuracy'})
+model_all.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)])
 
 epoch_length = 500
 num_epochs = int(options.num_epochs)
@@ -246,23 +246,23 @@ for epoch_num in range(num_epochs):
 			if iter_num == epoch_length:
 				loss_rpn_cls = np.mean(losses[:, 0])
 				loss_rpn_regr = np.mean(losses[:, 1])
-				loss_class_cls = np.mean(losses[:, 2])
-				loss_class_regr = np.mean(losses[:, 3])
+				#loss_class_cls = np.mean(losses[:, 2])
+				#loss_class_regr = np.mean(losses[:, 3])
 				class_acc = np.mean(losses[:, 4])
 
 				mean_overlapping_bboxes = float(sum(rpn_accuracy_for_epoch)) / len(rpn_accuracy_for_epoch)
 				rpn_accuracy_for_epoch = []
 
 				if C.verbose:
-					print('Mean number of bounding boxes from RPN overlapping ground truth boxes: {}'.format(mean_overlapping_bboxes))
+					#print('Mean number of bounding boxes from RPN overlapping ground truth boxes: {}'.format(mean_overlapping_bboxes))
 					print('Classifier accuracy for bounding boxes from RPN: {}'.format(class_acc))
 					print('Loss RPN classifier: {}'.format(loss_rpn_cls))
 					print('Loss RPN regression: {}'.format(loss_rpn_regr))
-					print('Loss Detector classifier: {}'.format(loss_class_cls))
-					print('Loss Detector regression: {}'.format(loss_class_regr))
+					#print('Loss Detector classifier: {}'.format(loss_class_cls))
+					#print('Loss Detector regression: {}'.format(loss_class_regr))
 					print('Elapsed time: {}'.format(time.time() - start_time))
 
-				curr_loss = loss_rpn_cls + loss_rpn_regr + loss_class_cls + loss_class_regr
+				curr_loss = loss_rpn_cls + loss_rpn_regr
 				iter_num = 0
 				start_time = time.time()
 
