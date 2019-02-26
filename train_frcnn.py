@@ -145,7 +145,7 @@ optimizer = Adam(lr=1e-5)
 optimizer_classifier = Adam(lr=1e-5)
 model_rpn.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)])
 #model_classifier.compile(optimizer=optimizer, loss=[losses.rpn_loss_cls(num_anchors), losses.rpn_loss_regr(num_anchors)], metrics={'dense_class_{}'.format(len(classes_count)): 'accuracy'})
-model_all.compile(optimizer=optimizer, loss= (losses.rpn_loss_cls(num_anchors) + losses.rpn_loss_regr(num_anchors)))
+model_all.compile(optimizer=optimizer, loss= [losses.rpn_loss_cls(num_anchors) + losses.rpn_loss_regr(num_anchors)])
 
 epoch_length = 500
 num_epochs = int(options.num_epochs)
